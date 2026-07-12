@@ -146,15 +146,6 @@
       "changeable": 0
     },
     {
-      "key": "WexYueYue",
-      "name": "💥闪电┃秒播💥",
-      "type": 3,
-      "api": "csp_WexYueYueGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
       "key": "WexV6DaShiXiong",
       "name": "💥师兄┃秒播💥",
       "type": 3,
