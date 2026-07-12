@@ -1,39 +1,54 @@
 {
   "remove_sites": [
     "Doubanaaa",
+
+    "WexshuangzixingGuard",
     "WexhubanGuard",
     "盘他",
     "雷鲸",
     "Wexpan123ziyuanGuard",
+
     "新6V",
+
     "Wexduanjuvop",
     "Wexduanjusuipian",
     "Wexduanjuvmp",
     "Wexduanjuhema",
     "Wexduanju001",
+
     "Wexlaobaitingshu",
     "Wex275tingshu",
+
     "Wexliyuan",
+
     "Wextangdou",
+
     "WexLunhuiDJ",
+
     "Wexbiliys",
     "bili",
     "biliych",
+
     "少儿教育",
     "小学课堂",
     "初中课堂",
     "高中教育",
+
     "看球",
     "瓜子看球",
+
     "Wextyso",
     "WexbaidusoGuard",
     "WexHaiYinsoGuard",
     "Wex97pansoGuard",
+
     "WexNewHuYa",
     "WexNewDouYu",
     "WexNewBiLiLive",
+
     "自定义",
     "AList",
+
     "115",
     "tianyi",
     "夸克",
@@ -44,19 +59,25 @@
     "baidu"
   ],
 
+
+  "rename_sites": {
+
+  },
+
+
   "keep_sites": [
     "Douban",
     "Doubana",
     "Wexconfig",
     "Wexokconfig",
+
     "WexerxiaoziyuanGuard",
     "玩偶",
     "Wexzhizhen",
     "Wexnullname",
     "WexduoduoziyuanGuard",
     "Wexmuougg",
-    "WexshuangzixingGuard",
-    "WexleijingGuard",
+
     "Wexhanxiaoquan",
     "賤賤",
     "WexkuihuatvGuard",
@@ -64,6 +85,7 @@
     "csp_Nmys",
     "WexbttwoGuard",
     "WexikanbotGuard",
+
     "Wexemby"
   ]
 }
