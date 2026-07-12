@@ -5,7 +5,7 @@
   "sites": [
     {
       "key": "NewDouBan",
-      "name": "🐮【王二小放牛娃】🐮",
+      "name": "✧豆瓣┃导航✧",
       "type": 3,
       "api": "csp_NewDouBanGuard",
       "searchable": 0,
@@ -15,7 +15,7 @@
     },
     {
       "key": "Doubana",
-      "name": "🐮【更新日期:20260712】🐮",
+      "name": "✧【更新日期:20260712】✧",
       "type": 3,
       "api": "csp_NewDouBanGuard",
       "searchable": 0,
@@ -25,7 +25,7 @@
     },
     {
       "key": "Doubana",
-      "name": "⬇️【网盘类先扫码】⬇️",
+      "name": "✧【更新日期:20260712】✧",
       "type": 3,
       "api": "csp_NewDouBanGuard",
       "searchable": 0,
@@ -35,7 +35,7 @@
     },
     {
       "key": "Wexconfig",
-      "name": "🐮配置┃中心🐮",
+      "name": "✧配置┃中心✧",
       "type": 3,
       "api": "csp_WexConfigGuard",
       "searchable": 0,
@@ -47,7 +47,7 @@
     },
     {
       "key": "二小",
-      "name": "💓‍指南┃4K💓‍",
+      "name": "✧二小┃4K✧‍",
       "type": 3,
       "api": "csp_NewErXiaoGuard",
       "searchable": 1,
@@ -56,7 +56,7 @@
     },
     {
       "key": "玩偶",
-      "name": "💓‍玩偶┃4K💓‍",
+      "name": "✧‍玩偶┃4K✧‍",
       "type": 3,
       "api": "csp_NewWoggGuard",
       "searchable": 1,
@@ -65,7 +65,7 @@
     },
     {
       "key": "NewZhiZhen",
-      "name": "💓至臻┃4K💓",
+      "name": "✧至臻┃4K✧",
       "type": 3,
       "api": "csp_NewZhiZhenGuard",
       "searchable": 1,
@@ -74,7 +74,7 @@
     },
     {
       "key": "NewMuOu",
-      "name": "💓木偶┃4K💓",
+      "name": "✧木偶┃4K✧",
       "type": 3,
       "api": "csp_NewMuOuGuard",
       "searchable": 1,
@@ -83,7 +83,7 @@
     },
     {
       "key": "NewDuoDuo",
-      "name": "💓多多┃4K💓",
+      "name": "✧多多┃4K✧",
       "type": 3,
       "api": "csp_NewDuoDuoGuard",
       "searchable": 1,
@@ -93,7 +93,7 @@
     },
     {
       "key": "NewPanMe123",
-      "name": "💓123┃4K💓",
+      "name": "✧123┃4K✧",
       "type": 3,
       "api": "csp_NewPanMe123Guard",
       "searchable": 1,
@@ -102,7 +102,7 @@
     },
     {
       "key": "WexHanXiaoQuan",
-      "name": "💥韩剧┃秒播💥",
+      "name": "✧韩剧┃秒播✧",
       "type": 3,
       "api": "csp_WexHanXiaoQuanGuard",
       "searchable": 1,
@@ -111,7 +111,7 @@
     },
     {
       "key": "WexGuaZi",
-      "name": "💥瓜子┃秒播💥",
+      "name": "✧瓜子┃秒播✧",
       "type": 3,
       "api": "csp_WexGuaZiGuard",
       "searchable": 1,
@@ -120,7 +120,7 @@
     },
     {
       "key": "賤賤",
-      "name": "💥贱片┃秒播💥",
+      "name": "✧贱片┃秒播✧",
       "type": 3,
       "api": "csp_WexJianPianGuard",
       "searchable": 1,
@@ -129,7 +129,7 @@
     },
     {
       "key": "WexWenCai",
-      "name": "💥文才┃秒播💥",
+      "name": "✧文才┃秒播✧",
       "type": 3,
       "api": "csp_WexWenCaiGuard",
       "searchable": 1,
@@ -138,7 +138,7 @@
     },
     {
       "key": "WexDuBoKu",
-      "name": "💥独播┃秒播💥",
+      "name": "✧独播┃秒播✧",
       "type": 3,
       "api": "csp_WexDuBoKuGuard",
       "searchable": 1,
@@ -147,7 +147,7 @@
     },
     {
       "key": "WexV6DaShiXiong",
-      "name": "💥师兄┃秒播💥",
+      "name": "✧师兄┃秒播✧",
       "type": 3,
       "api": "csp_WexV6DaShiXiongGuard",
       "searchable": 1,
@@ -156,7 +156,7 @@
     },
     {
       "key": "WexV6TeGou",
-      "name": "💥太狗┃秒播💥",
+      "name": "✧太狗┃秒播✧",
       "type": 3,
       "api": "csp_WexV6TeGouGuard",
       "searchable": 1,
@@ -165,7 +165,7 @@
     },
     {
       "key": "WexYiYs",
-      "name": "💥伊影┃秒播💥",
+      "name": "✧伊影┃秒播✧",
       "type": 3,
       "api": "csp_WexYiYsGuard",
       "searchable": 1,
@@ -174,7 +174,7 @@
     },
     {
       "key": "WexReBo",
-      "name": "💥热播┃秒播💥",
+      "name": "✧热播┃秒播✧",
       "type": 3,
       "api": "csp_WexReBoGuard",
       "searchable": 1,
@@ -183,7 +183,7 @@
     },
     {
       "key": "ChildrenDuoDuo",
-      "name": "👼多多┃儿歌👼",
+      "name": "✧多多┃儿歌✧",
       "type": 3,
       "api": "csp_ChildrenDuoDuoGuard",
       "searchable": 1,
@@ -195,7 +195,7 @@
     },
     {
       "key": "ChildrenBaoBao",
-      "name": "👼宝宝┃儿歌👼",
+      "name": "✧宝宝┃儿歌✧",
       "type": 3,
       "api": "csp_ChildrenBaoBaoGuard",
       "searchable": 1,
@@ -207,7 +207,7 @@
     },
     {
       "key": "ChildrenBeiWa",
-      "name": "👼贝贝┃儿歌👼",
+      "name": "✧贝贝┃儿歌✧",
       "type": 3,
       "api": "csp_ChildrenBeiWaGuard",
       "searchable": 1,
@@ -219,7 +219,7 @@
     },
     {
       "key": "MusicIKtv",
-      "name": "🎼KTV┃音乐🎼",
+      "name": "✧KTV┃音乐✧",
       "type": 3,
       "api": "csp_MusicIKtvGuard",
       "searchable": 1,
@@ -227,7 +227,7 @@
     },
     {
       "key": "Music163",
-      "name": "🎼易听┃音乐🎼",
+      "name": "✧易听┃音乐✧",
       "type": 3,
       "api": "csp_Music163Guard",
       "searchable": 1,
@@ -235,7 +235,7 @@
     },
     {
       "key": "MusicKuWo",
-      "name": "🎼酷听┃音乐🎼",
+      "name": "✧酷听┃音乐✧",
       "type": 3,
       "api": "csp_MusicKuWoGuard",
       "searchable": 1,
