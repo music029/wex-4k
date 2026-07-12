@@ -7,10 +7,78 @@ OUTPUT_FILE = "fish.json"
 
 
 
-def load_json(path):
+# =========================
+# 名称修改规则
+# =========================
+
+name_replace = {
+
+    "NewDouBan": "✧豆瓣┃导航✧",
+
+    "Doubana": "✧【更新日期:20260712】✧",
+
+    "Wexconfig": "✧配置┃中心✧",
+
+
+    "二小": "✧二小┃4K✧‍",
+
+    "玩偶": "✧‍玩偶┃4K✧‍",
+
+    "NewZhiZhen": "✧至臻┃4K✧",
+
+    "NewMuOu": "✧木偶┃4K✧",
+
+    "NewDuoDuo": "✧多多┃4K✧",
+
+    "NewPanMe123": "✧123┃4K✧",
+
+
+    "WexHanXiaoQuan": "✧韩剧┃秒播✧",
+
+    "WexGuaZi": "✧瓜子┃秒播✧",
+
+    "賤賤": "✧贱片┃秒播✧",
+
+    "WexWenCai": "✧文才┃秒播✧",
+
+    "WexDuBoKu": "✧独播┃秒播✧",
+
+    "WexYueYue": "✧闪电┃秒播✧",
+
+    "WexV6DaShiXiong": "✧师兄┃秒播✧",
+
+    "WexV6TeGou": "✧太狗┃秒播✧",
+
+    "WexYiYs": "✧伊影┃秒播✧",
+
+    "WexReBo": "✧热播┃秒播✧",
+
+
+    "ChildrenDuoDuo": "✧多多┃儿歌✧",
+
+    "ChildrenBaoBao": "✧宝宝┃儿歌✧",
+
+    "ChildrenBeiWa": "✧贝贝┃儿歌✧",
+
+
+    "MusicIKtv": "✧KTV┃音乐✧",
+
+    "Music163": "✧易听┃音乐✧",
+
+    "MusicKuWo": "✧酷听┃音乐✧"
+
+}
+
+
+
+# =========================
+# 读取json
+# =========================
+
+def load_json(file):
 
     with open(
-        path,
+        file,
         "r",
         encoding="utf-8"
     ) as f:
@@ -19,10 +87,14 @@ def load_json(path):
 
 
 
-def save_json(path, data):
+# =========================
+# 保存json
+# =========================
+
+def save_json(file,data):
 
     with open(
-        path,
+        file,
         "w",
         encoding="utf-8"
     ) as f:
@@ -36,51 +108,53 @@ def save_json(path, data):
 
 
 
+# =========================
+# 下载作者接口
+# =========================
+
 def download_json(url):
 
-    print("=================")
-    print("下载配置:")
+    print("下载:")
     print(url)
 
 
-    request = urllib.request.Request(
+    req = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "Mozilla/5.0"
+            "User-Agent":"Mozilla/5.0"
         }
     )
 
 
     with urllib.request.urlopen(
-        request,
+        req,
         timeout=30
-    ) as response:
+    ) as r:
 
-        content = response.read().decode(
+        text = r.read().decode(
             "utf-8"
         )
 
 
-    return json.loads(content)
+    return json.loads(text)
 
 
+
+
+# =========================
+# 主程序
+# =========================
 
 def main():
 
-
-    # 读取过滤配置
 
     config = load_json(
         CONFIG_FILE
     )
 
 
-    source_url = config.get(
-        "source_url"
-    )
+    source_url = config["source_url"]
 
-
-    # 下载作者配置
 
     data = download_json(
         source_url
@@ -93,14 +167,13 @@ def main():
     )
 
 
-    print("=================")
+    print("================")
     print(
         "原始站点:",
         len(sites)
     )
 
 
-    # 白名单
 
     keep_sites = set(
         config.get(
@@ -110,13 +183,14 @@ def main():
     )
 
 
+
     new_sites = []
 
 
 
-    print("=================")
+    print("================")
     print("开始过滤")
-    print("=================")
+    print("================")
 
 
 
@@ -135,19 +209,30 @@ def main():
         )
 
 
+
+        # 白名单
+
         if key in keep_sites:
+
+
+
+            # 修改名称
+
+            if key in name_replace:
+
+                site["name"] = name_replace[key]
+
+
+
+            new_sites.append(site)
+
 
 
             print(
                 "保留:",
                 key,
                 "|",
-                name
-            )
-
-
-            new_sites.append(
-                site
+                site["name"]
             )
 
 
@@ -163,13 +248,11 @@ def main():
 
 
 
-    # 替换站点列表
-
     data["sites"] = new_sites
 
 
 
-    print("=================")
+    print("================")
     print(
         "最终站点:",
         len(new_sites)
@@ -177,19 +260,18 @@ def main():
 
 
 
-    # 输出 fish.json
-
     save_json(
         OUTPUT_FILE,
         data
     )
 
 
-    print("=================")
+    print("================")
     print(
         "完成:",
         OUTPUT_FILE
     )
+
 
 
 
