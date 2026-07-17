@@ -7,74 +7,6 @@ OUTPUT_FILE = "fish.json"
 
 
 
-# =========================
-# 名称修改规则
-# =========================
-
-name_replace = {
-
-    "NewDouBan": "✧豆瓣┃导航✧",
-
-    "Doubana": "✧【更新:20260712】✧",
-
-    "Wexconfig": "✧配置┃中心✧",
-
-
-    "二小": "✧二小┃4K✧‍",
-
-    "玩偶": "✧‍玩偶┃4K✧‍",
-
-    "NewZhiZhen": "✧至臻┃4K✧",
-
-    "NewMuOu": "✧木偶┃4K✧",
-
-    "NewDuoDuo": "✧多多┃4K✧",
-
-    "NewPanMe123": "✧123┃4K✧",
-
-
-    "WexHanXiaoQuan": "✧韩剧┃秒播✧",
-
-    "WexGuaZi": "✧瓜子┃秒播✧",
-
-    "賤賤": "✧贱片┃秒播✧",
-
-    "WexWenCai": "✧文才┃秒播✧",
-
-    "WexDuBoKu": "✧独播┃秒播✧",
-
-    "WexYueYue": "✧闪电┃秒播✧",
-
-    "WexV6DaShiXiong": "✧师兄┃秒播✧",
-
-    "WexV6TeGou": "✧太狗┃秒播✧",
-
-    "WexYiYs": "✧伊影┃秒播✧",
-
-    "WexReBo": "✧热播┃秒播✧",
-
-
-    "ChildrenDuoDuo": "✧多多┃儿歌✧",
-
-    "ChildrenBaoBao": "✧宝宝┃儿歌✧",
-
-    "ChildrenBeiWa": "✧贝贝┃儿歌✧",
-
-
-    "MusicIKtv": "✧KTV┃音乐✧",
-
-    "Music163": "✧易听┃音乐✧",
-
-    "MusicKuWo": "✧酷听┃音乐✧"
-
-}
-
-
-
-# =========================
-# 读取json
-# =========================
-
 def load_json(file):
 
     with open(
@@ -87,11 +19,7 @@ def load_json(file):
 
 
 
-# =========================
-# 保存json
-# =========================
-
-def save_json(file,data):
+def save_json(file, data):
 
     with open(
         file,
@@ -108,20 +36,16 @@ def save_json(file,data):
 
 
 
-# =========================
-# 下载作者接口
-# =========================
-
 def download_json(url):
 
-    print("下载:")
+    print("下载接口:")
     print(url)
 
 
     req = urllib.request.Request(
         url,
         headers={
-            "User-Agent":"Mozilla/5.0"
+            "User-Agent": "Mozilla/5.0"
         }
     )
 
@@ -140,42 +64,133 @@ def download_json(url):
 
 
 
+def get_order(key, order_list):
 
-# =========================
-# 主程序
-# =========================
+    for i, item in enumerate(order_list):
+
+        if key == item:
+
+            return i
+
+    return 999
+
+
+
+def sort_site(site, config):
+
+    key = site.get(
+        "key",
+        ""
+    )
+
+
+    # 功能
+
+    index = get_order(
+        key,
+        config.get(
+            "function_order",
+            []
+        )
+    )
+
+    if index != 999:
+
+        return (
+            0,
+            index
+        )
+
+
+
+    # 4K
+
+    index = get_order(
+        key,
+        config.get(
+            "fourk_order",
+            []
+        )
+    )
+
+    if index != 999:
+
+        return (
+            1,
+            index
+        )
+
+
+
+    # 影视
+
+    index = get_order(
+        key,
+        config.get(
+            "movie_order",
+            []
+        )
+    )
+
+    if index != 999:
+
+        return (
+            2,
+            index
+        )
+
+
+
+    # 其它
+
+    index = get_order(
+        key,
+        config.get(
+            "other_order",
+            []
+        )
+    )
+
+    if index != 999:
+
+        return (
+            3,
+            index
+        )
+
+
+    return (
+        9,
+        999
+    )
+
+
 
 def main():
-
 
     config = load_json(
         CONFIG_FILE
     )
 
 
-    source_url = config["source_url"]
-
-
     data = download_json(
-        source_url
+        config["source_url"]
     )
 
 
-    sites = data.get(
+    old_sites = data.get(
         "sites",
         []
     )
 
 
-    print("================")
     print(
         "原始站点:",
-        len(sites)
+        len(old_sites)
     )
 
 
-
-    keep_sites = set(
+    keep = set(
         config.get(
             "keep_sites",
             []
@@ -183,18 +198,19 @@ def main():
     )
 
 
+    rename = config.get(
+        "rename_by_key",
+        {}
+    )
+
 
     new_sites = []
 
-
-
-    print("================")
-    print("开始过滤")
-    print("================")
+    seen = set()
 
 
 
-    for site in sites:
+    for site in old_sites:
 
 
         key = site.get(
@@ -203,60 +219,58 @@ def main():
         )
 
 
-        name = site.get(
-            "name",
-            ""
+        if not key:
+
+            continue
+
+
+        if key in seen:
+
+            continue
+
+
+        seen.add(key)
+
+
+
+        if key not in keep:
+
+            continue
+
+
+
+        if key in rename:
+
+            site["name"] = rename[key]
+
+
+
+        new_sites.append(site)
+
+
+
+    new_sites.sort(
+        key=lambda x:
+        sort_site(
+            x,
+            config
+        )
+    )
+
+
+
+    if len(new_sites) < config.get(
+        "min_sites",
+        0
+    ):
+
+        raise Exception(
+            f"站点数量异常: {len(new_sites)}"
         )
 
 
 
-        # 白名单
-
-        if key in keep_sites:
-
-
-
-            # 修改名称
-
-            if key in name_replace:
-
-                site["name"] = name_replace[key]
-
-
-
-            new_sites.append(site)
-
-
-
-            print(
-                "保留:",
-                key,
-                "|",
-                site["name"]
-            )
-
-
-        else:
-
-
-            print(
-                "屏蔽:",
-                key,
-                "|",
-                name
-            )
-
-
-
     data["sites"] = new_sites
-
-
-
-    print("================")
-    print(
-        "最终站点:",
-        len(new_sites)
-    )
 
 
 
@@ -266,12 +280,24 @@ def main():
     )
 
 
+
     print("================")
+
     print(
-        "完成:",
-        OUTPUT_FILE
+        "最终保留:",
+        len(new_sites)
     )
 
+
+    for s in new_sites:
+
+        print(
+            s["key"],
+            s["name"]
+        )
+
+
+    print("================")
 
 
 
