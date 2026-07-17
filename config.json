@@ -1,4 +1,6 @@
 {
+  "source_url": "你的原接口地址",
+
   "keep_sites": [
     "NewDouBan",
     "Wexconfig",
@@ -39,7 +41,6 @@
     "WexReBo": "✧热播┃影视✧",
 
     "push_agent": "✧推送┃接收✧"
-
   },
 
 
