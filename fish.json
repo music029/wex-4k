@@ -1,24 +1,13 @@
 {
-  "spider": "https://nos.netease.com/ysf/bd630429a515df48ad3573ea1d4e7426.jar;md5;80286bf6d6ffbadfb4559f098e2847ce",
+  "spider": "https://zl.wpscdn.cn/2026/07/18/space_img/e9b4c391-9934-4210-8c56-25fcd8af3152.png;md5;3b13491a54dbd2bcfb8bebeafb782314",
   "wallpaper": "http://王二小放牛娃牛逼.999888987.xyz",
   "logo": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaFile/3CEAE9E_773_wexfnw_20250911190012684newMediaFile.gif",
   "sites": [
     {
-      "key": "NewDouBan",
-      "name": "✧豆瓣┃导航✧",
-      "type": 3,
-      "api": "csp_NewDouBanGuard",
-      "indexs": 1,
-      "searchable": 0,
-      "quickSearch": 0,
-      "filterable": 0,
-      "ext": "https://cdn.waimaimingtang.com/file/images/bwc/20260414181247-ae51abfbfe.txt"
-    },
-    {
       "key": "Wexconfig",
       "name": "✧设置┃中心✧",
       "type": 3,
-      "api": "csp_WexConfigGuard",
+      "api": "csp_PanConfigGuard",
       "searchable": 0,
       "changeable": 0,
       "indexs": 0,
@@ -30,7 +19,7 @@
       "key": "二小",
       "name": "✧二小┃4K✧",
       "type": 3,
-      "api": "csp_NewErXiaoGuard",
+      "api": "csp_AiNewXiaoPanGuard",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0
@@ -39,7 +28,7 @@
       "key": "玩偶",
       "name": "✧玩偶┃4K✧",
       "type": 3,
-      "api": "csp_NewWoggGuard",
+      "api": "csp_AiNewWoggGuard",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0
@@ -48,35 +37,7 @@
       "key": "NewZhiZhen",
       "name": "✧至臻┃4K✧",
       "type": 3,
-      "api": "csp_NewZhiZhenGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "NewMuOu",
-      "name": "✧木偶┃4K✧",
-      "type": 3,
-      "api": "csp_NewMuOuGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "NewDuoDuo",
-      "name": "✧多多┃4K✧",
-      "type": 3,
-      "api": "csp_NewDuoDuoGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0,
-      "timeout": 120
-    },
-    {
-      "key": "NewPanMe123",
-      "name": "✧123┃4K✧",
-      "type": 3,
-      "api": "csp_NewPanMe123Guard",
+      "api": "csp_AiNewZhiZhenGuard",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0
@@ -85,16 +46,7 @@
       "key": "WexHanXiaoQuan",
       "name": "✧韩剧┃影视✧",
       "type": 3,
-      "api": "csp_WexHanXiaoQuanGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "WexGuaZi",
-      "name": "✧瓜子┃影视✧",
-      "type": 3,
-      "api": "csp_WexGuaZiGuard",
+      "api": "csp_WexAiHanXiaoQuanGuard",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0
@@ -103,25 +55,7 @@
       "key": "賤賤",
       "name": "✧贱片┃影视✧",
       "type": 3,
-      "api": "csp_WexJianPianGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "WexDuBoKu",
-      "name": "✧独播┃影视✧",
-      "type": 3,
-      "api": "csp_WexDuBoKuGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "WexReBo",
-      "name": "✧热播┃影视✧",
-      "type": 3,
-      "api": "csp_WexReBoGuard",
+      "api": "csp_WexAiJianPianGuard",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0
@@ -133,6 +67,28 @@
       "api": "csp_PushGuard",
       "searchable": 1,
       "changeable": 0
+    }
+  ],
+  "parses": [
+    {
+      "name": "王",
+      "type": 1,
+      "url": "http://122.228.84.103:7777/api/?key=4Dk5tdayvY6NZufEMG&url="
+    },
+    {
+      "name": "二",
+      "type": 1,
+      "url": "http://110.42.7.182:880/api/?key=7e84f07dc78fbb3406d64a1ab7d966b3&url="
+    },
+    {
+      "name": "小",
+      "type": 1,
+      "url": "http://43.136.176.188:91/api/?key=4ef232e96172b0bda78d393c695fe7c4&url="
+    },
+    {
+      "name": "帅",
+      "type": 1,
+      "url": "http://pan.qiaoji8.com/tvbox/neibu.php?url="
     }
   ],
   "doh": [
