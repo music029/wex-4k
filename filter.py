@@ -6,6 +6,7 @@ CONFIG_FILE = "config.json"
 OUTPUT_FILE = "fish.json"
 
 
+
 def load_json(file):
 
     with open(
@@ -18,7 +19,7 @@ def load_json(file):
 
 
 
-def save_json(file, data):
+def save_json(file,data):
 
     with open(
         file,
@@ -37,22 +38,28 @@ def save_json(file, data):
 
 def download(url):
 
+    print("================")
     print("下载接口:")
     print(url)
 
+
     req = urllib.request.Request(
+
         url,
+
         headers={
             "User-Agent":
             "Mozilla/5.0"
         }
+
     )
 
 
     with urllib.request.urlopen(
         req,
-        timeout=20
+        timeout=30
     ) as r:
+
 
         return json.loads(
             r.read()
@@ -61,10 +68,13 @@ def download(url):
 
 
 
+
 def main():
 
 
-    cfg = load_json(CONFIG_FILE)
+    cfg = load_json(
+        CONFIG_FILE
+    )
 
 
     data = download(
@@ -79,21 +89,23 @@ def main():
         )
 
 
-    old = len(
-        data["sites"]
-    )
+    sites = data["sites"]
 
 
     print(
         "原始站点:",
-        old
+        len(sites)
     )
 
 
-    keep = []
+    keep_keys = cfg["keep_keys"]
 
 
-    for site in data["sites"]:
+    result = []
+
+
+
+    for site in sites:
 
 
         key = site.get(
@@ -111,17 +123,36 @@ def main():
         text = key + name
 
 
+
+        # ========
+        # 优先保留
+        # ========
+
+        if key in keep_keys:
+
+            result.append(site)
+
+            continue
+
+
+
+        # ========
         # 删除关键词
+        # ========
+
 
         remove = False
 
 
         for word in cfg["remove_keywords"]:
 
+
             if word in text:
 
                 remove = True
+
                 break
+
 
 
         if remove:
@@ -130,17 +161,15 @@ def main():
 
 
 
-        # 保留列表
-
-        if key in cfg["keep_keys"]:
-
-            keep.append(site)
-
-
-
+    # ==========
     # 改名
+    # ==========
 
-    for site in keep:
+
+    rename = cfg["rename"]
+
+
+    for site in result:
 
 
         key = site.get(
@@ -148,50 +177,68 @@ def main():
         )
 
 
-        if key in cfg["rename"]:
-
-            site["name"] = cfg["rename"][key]
+        if key in rename:
 
 
+            site["name"] = rename[key]
 
+
+
+
+    # ==========
     # 排序
+    # ==========
+
 
     order = cfg["order"]
 
 
-    result = []
+    new_sites = []
+
 
 
     for key in order:
 
-        for site in keep:
+
+        for site in result:
+
 
             if site.get("key") == key:
 
-                result.append(site)
+                new_sites.append(site)
+
+                break
 
 
 
-    data["sites"] = result
+    data["sites"] = new_sites
 
-
-
-    print(
-        "过滤后站点:",
-        len(result)
-    )
 
 
     print("================")
 
+    print(
+        "过滤后站点:",
+        len(new_sites)
+    )
 
-    for s in result:
+    print("================")
+
+
+
+    for s in new_sites:
+
 
         print(
-            s["key"],
+
+            s.get("key"),
+
             "|",
-            s["name"]
+
+            s.get("name")
+
         )
+
 
 
     print("================")
@@ -199,15 +246,20 @@ def main():
 
 
     save_json(
+
         OUTPUT_FILE,
+
         data
+
     )
+
 
 
     print(
         "生成完成:",
         OUTPUT_FILE
     )
+
 
 
 
